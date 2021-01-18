@@ -5,7 +5,18 @@ import Characters from "../views/Characters.vue";
 const routes = [
    {
       path: "/",
-      component: Characters
+      redirect: {
+         name: "Characters",
+         query: {
+            page: 1
+         }
+      }
+   },
+   {
+      path: "/charcacters",
+      name: "Characters",
+      component: Characters,
+      props: route => ({ page: Number(route.query.page) })
    }
 ];
 
