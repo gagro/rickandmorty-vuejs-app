@@ -13,7 +13,7 @@ const routes = [
       }
    },
    {
-      path: "/charcacters",
+      path: "/characters",
       name: "Characters",
       component: Characters,
       props: route => ({ page: Number(route.query.page) })
