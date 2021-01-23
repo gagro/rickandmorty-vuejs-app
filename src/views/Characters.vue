@@ -1,17 +1,20 @@
 <template>
-  <main>
-    <div v-if="loading">hehehe</div>
+  <main class="container">
+    <div v-if="loading">
+      <Loader />
+    </div>
     <div v-else>
       <div v-for="character in characters(page)" :key="character.id">
         {{ character.name }}
       </div>
-      <Pagination />
+      <Pagination :numberOfPages="numberOfCharPages" :page="Number(page)" />
     </div>
   </main>
 </template>
 
 <script>
 import Pagination from "../components/Pagination";
+import Loader from "../components/Loader";
 
 import { mapActions, mapGetters } from "vuex";
 
@@ -19,6 +22,7 @@ export default {
   name: "Characters",
   components: {
     Pagination,
+    Loader,
   },
   data() {
     return {
@@ -28,7 +32,7 @@ export default {
   },
   props: ["page"],
   computed: {
-    ...mapGetters(["characters"]),
+    ...mapGetters(["characters", "numberOfCharPages"]),
   },
   methods: {
     ...mapActions(["fetchCharacters"]),
@@ -44,7 +48,7 @@ export default {
     this.fetchData();
   },
   watch: {
-    "$route.query.page": "fetchData",
+    page: "fetchData",
   },
 };
 </script>

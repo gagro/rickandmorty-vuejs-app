@@ -1,23 +1,27 @@
 <template>
   <div>
-    <router-link :to="prevPage">ae</router-link>
-    <router-link :to="nextPage">xD</router-link>
+    <router-link :to="prevPage" :disabled="page === 1" tag="button">
+      ae
+    </router-link>
+    {{ page }} / {{ numberOfPages }}
+    <router-link :to="nextPage" :disabled="page === numberOfPages" tag="button">
+      xD
+    </router-link>
   </div>
 </template>
 
 <script>
 export default {
   name: "Pagination",
+  props: ["page", "numberOfPages"],
   computed: {
     prevPage() {
-      const page = Number(this.$route.query.page);
       const pathname = this.$route.path;
-      return `${pathname}?page=${page - 1}`;
+      return `${pathname}?page=${this.page - 1}`;
     },
     nextPage() {
-      const page = Number(this.$route.query.page);
       const pathname = this.$route.path;
-      return `${pathname}?page=${page + 1}`;
+      return `${pathname}?page=${this.page + 1}`;
     },
   },
 };
