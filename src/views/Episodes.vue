@@ -4,14 +4,10 @@
       <Loader />
     </div>
     <div v-else>
-      <div class="hehe">
-        <Character
-          v-for="character in characters(page)"
-          :key="character.id"
-          :item="character"
-        />
+      <div v-for="episode in episodes(page)" :key="episode.id">
+        {{ episode.name }}
       </div>
-      <Pagination :numberOfPages="numberOfCharPages" :page="Number(page)" />
+      <Pagination :numberOfPages="numberOfEpiPages" :page="Number(page)" />
     </div>
   </main>
 </template>
@@ -19,16 +15,14 @@
 <script>
 import Pagination from "../components/Pagination";
 import Loader from "../components/Loader";
-import Character from "../components/Character";
 
 import { mapActions, mapGetters } from "vuex";
 
 export default {
-  name: "Characters",
+  name: "Episodes",
   components: {
     Pagination,
     Loader,
-    Character,
   },
   data() {
     return {
@@ -38,13 +32,13 @@ export default {
   },
   props: ["page"],
   computed: {
-    ...mapGetters(["characters", "numberOfCharPages"]),
+    ...mapGetters(["episodes", "numberOfEpiPages"]),
   },
   methods: {
-    ...mapActions(["fetchCharacters"]),
+    ...mapActions(["fetchEpisodes"]),
     fetchData() {
       this.loading = true;
-      this.fetchCharacters(this.page).then((error) => {
+      this.fetchEpisodes(this.page).then((error) => {
         this.loading = false;
         this.error = error;
       });
@@ -59,9 +53,5 @@ export default {
 };
 </script>
 
-<style scoped>
-.hehe {
-  display: flex;
-  flex-flow: wrap;
-}
+<style>
 </style>

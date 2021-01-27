@@ -8,7 +8,7 @@ axios.defaults.baseURL = "https://rickandmortyapi.com/api";
 export default {
    fetchCharacters({ commit, state }, page) {
       if (!state.characters[page]) {
-         return axios.get(`/character?page=${page}`).then(response => {
+         return axios.get(`/character?page=${page}&limit=10`).then(response => {
             commit({
                type: types.GET_CHARACTERS,
                data: response.data.results,

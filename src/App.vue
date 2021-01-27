@@ -19,8 +19,11 @@ export default {
 <style>
 body {
   margin: 0;
+  background-color: #000;
+  color: #fff;
 }
 .container {
   margin-left: 15em;
+  padding: 1em;
 }
 </style>
