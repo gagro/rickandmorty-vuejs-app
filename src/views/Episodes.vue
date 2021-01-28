@@ -4,8 +4,12 @@
       <Loader />
     </div>
     <div v-else>
-      <div v-for="episode in episodes(page)" :key="episode.id">
-        {{ episode.name }}
+      <div class="responsive">
+        <Episode
+          v-for="episode in episodes(page)"
+          :key="episode.id"
+          :item="episode"
+        />
       </div>
       <Pagination :numberOfPages="numberOfEpiPages" :page="Number(page)" />
     </div>
@@ -15,6 +19,7 @@
 <script>
 import Pagination from "../components/Pagination";
 import Loader from "../components/Loader";
+import Episode from "../components/Episode";
 
 import { mapActions, mapGetters } from "vuex";
 
@@ -23,6 +28,7 @@ export default {
   components: {
     Pagination,
     Loader,
+    Episode,
   },
   data() {
     return {

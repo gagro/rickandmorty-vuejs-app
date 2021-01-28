@@ -26,4 +26,8 @@ body {
   margin-left: 15em;
   padding: 1em;
 }
+.responsive {
+  display: flex;
+  flex-flow: wrap;
+}
 </style>

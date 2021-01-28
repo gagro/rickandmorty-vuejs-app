@@ -3,17 +3,23 @@
     <div class="logo">
       <img src="../assets/logo.jpg" alt="Logo" />
     </div>
-    <div v-for="menuItem in menuItems" :key="menuItem.id">
-      <router-link :to="menuItem.path">
-        {{ menuItem.name }}
-      </router-link>
-    </div>
+    <MenuItem
+      v-for="menuItem in menuItems"
+      :key="menuItem.id"
+      :linkTo="menuItem.path"
+      :text="menuItem.name"
+    />
   </div>
 </template>
 
 <script>
+import MenuItem from "./MenuItem";
+
 export default {
   name: "Sidebar",
+  components: {
+    MenuItem,
+  },
   data() {
     return {
       menuItems: [

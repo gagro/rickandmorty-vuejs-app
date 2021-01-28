@@ -4,7 +4,7 @@
       <Loader />
     </div>
     <div v-else>
-      <div class="hehe">
+      <div class="responsive">
         <Character
           v-for="character in characters(page)"
           :key="character.id"
@@ -60,8 +60,4 @@ export default {
 </script>
 
 <style scoped>
-.hehe {
-  display: flex;
-  flex-flow: wrap;
-}
 </style>
