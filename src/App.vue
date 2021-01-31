@@ -28,6 +28,7 @@ body {
 }
 .responsive {
   display: flex;
+  justify-content: center;
   flex-flow: wrap;
 }
 </style>

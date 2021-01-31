@@ -30,9 +30,10 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import "@/css/_variables.scss";
 .main {
-  box-shadow: 0px 0px 10px 3px #00b0c8;
+  box-shadow: 0px 0px 10px 3px $primary-color;
   border-radius: 15px;
   width: 20%;
   display: flex;
@@ -40,34 +41,37 @@ export default {
   margin: 10px;
   transform: scale(1);
   transition: transform 300ms ease-in-out;
-}
-.main:hover {
-  transform: scale(1.02);
-  transition: transform 300ms ease-in-out;
-}
-img {
-  border-radius: 50%;
-  height: 100%;
-  width: 100%;
-  box-shadow: 0px 0px 10px 3px #78f05c;
-}
-.profile {
-  width: 7em;
-  height: 7em;
-  margin: auto 0;
-}
-.info {
-  height: fit-content;
-  margin: auto 0;
-  margin-left: 5px;
-}
-ul {
-  list-style: none;
-  padding: unset;
-  color: #d4d2cd;
-}
-li > span {
-  color: #fff;
-  font-weight: 600;
+
+  &:hover {
+    transform: scale(1.02);
+    transition: transform 300ms ease-in-out;
+  }
+
+  .profile {
+    width: 7em;
+    height: 7em;
+    margin: auto 0;
+
+    img {
+      border-radius: 50%;
+      height: 100%;
+      width: 100%;
+      box-shadow: 0px 0px 10px 3px $secondary-color;
+    }
+  }
+
+  .info {
+    height: fit-content;
+    margin: auto 0;
+    margin-left: 5px;
+    list-style: none;
+    padding: unset;
+    color: #d4d2cd;
+
+    span {
+      color: #fff;
+      font-weight: 600;
+    }
+  }
 }
 </style>
