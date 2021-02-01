@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="pagination">
     <router-link :to="prevPage" :disabled="page === 1" tag="button">
-      ae
+      PREV
     </router-link>
-    {{ page }} / {{ numberOfPages }}
+    <div>{{ page }} / {{ numberOfPages }}</div>
     <router-link :to="nextPage" :disabled="page === numberOfPages" tag="button">
-      xD
+      NEXT
     </router-link>
   </div>
 </template>
@@ -27,5 +27,22 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import "@/css/_variables.scss";
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px 0;
+
+  button {
+    background-color: transparent;
+    border-color: transparent;
+    margin: 0 10px;
+    border-radius: 7px;
+    color: #fff;
+    box-shadow: 0px 0px 10px 3px $secondary-color;
+    cursor: pointer;
+  }
+}
 </style>

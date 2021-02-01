@@ -31,6 +31,7 @@ export default {
   margin: 10px;
   transform: scale(1);
   transition: transform 300ms ease-in-out;
+  box-shadow: 0px 0px 10px 3px $secondary-color;
 
   @for $i from 1 through length($colors) {
     &:nth-of-type(#{length($colors)}n + #{$i}) {

@@ -8,9 +8,10 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import "@/css/_variables.scss";
 .loader {
-  border: 5px solid #000;
+  border: 5px solid $primary-color;
   border-top: 5px solid transparent;
   border-radius: 50%;
   margin: auto;
