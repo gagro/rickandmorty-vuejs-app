@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div class="main responsiveItem">
     <div class="top">
       <div class="title">{{ item.name }}</div>
       <div class="hehe">
@@ -23,7 +23,6 @@ export default {
 .main {
   border-radius: 15px;
   background-color: #fff;
-  width: 20%;
   height: 8.5em;
   display: flex;
   flex-direction: column;

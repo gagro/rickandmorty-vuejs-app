@@ -4,8 +4,12 @@
       <Loader />
     </div>
     <div v-else>
-      <div v-for="location in locations(page)" :key="location.id">
-        {{ location.name }}
+      <div class="responsive">
+        <Location
+          v-for="location in locations(page)"
+          :key="location.id"
+          :item="location"
+        />
       </div>
       <Pagination :numberOfPages="numberOfLocPages" :page="Number(page)" />
     </div>
@@ -15,6 +19,7 @@
 <script>
 import Pagination from "../components/Pagination";
 import Loader from "../components/Loader";
+import Location from "../components/Location";
 
 import { mapActions, mapGetters } from "vuex";
 
@@ -23,6 +28,7 @@ export default {
   components: {
     Pagination,
     Loader,
+    Location,
   },
   data() {
     return {
